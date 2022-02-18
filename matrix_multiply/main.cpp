@@ -48,5 +48,6 @@ int main() {
     third.join();
     four.join();
     auto t3 = chrono::high_resolution_clock::now();
-    cout << chrono::duration_cast<chrono::milliseconds>(t2-t1).count()<< " " << chrono::duration_cast<chrono::milliseconds>(t3-t2).count();
+    cout << chrono::duration_cast<chrono::milliseconds>(t2-t1).count()<< " -singe core \n"
+    cout << chrono::duration_cast<chrono::milliseconds>(t3-t2).count() << " -multi core";
 }
