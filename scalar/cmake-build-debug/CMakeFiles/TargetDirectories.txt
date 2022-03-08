@@ -1,3 +1,0 @@
-/home/stranik/MyProjects/CLionProjects/Ded/scalar/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/stranik/MyProjects/CLionProjects/Ded/scalar/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/stranik/MyProjects/CLionProjects/Ded/scalar/cmake-build-debug/CMakeFiles/scalar.dir

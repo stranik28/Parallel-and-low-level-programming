@@ -1,1 +1,0 @@
-/usr/bin/c++ -g -pthread CMakeFiles/multy_core.dir/main.cpp.o -o multy_core 
