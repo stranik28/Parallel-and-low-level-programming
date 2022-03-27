@@ -3,5 +3,5 @@ build:
 run:
 	./main
 compile:
-	build
-	run
+	make build
+	make run

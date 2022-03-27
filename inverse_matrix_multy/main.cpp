@@ -35,10 +35,9 @@ double getDeterminant(const std::vector<std::vector<double>> vect) {
 		
         //Submatrix
         std::vector<std::vector<double>> subVect(dimension - 1, std::vector<double> (dimension - 1));
-		#pragma omp for
         for(int m = 1; m < dimension; m++) {
             int z = 0;
-			#pragma omp for
+            #pragma omp for
             for(int n = 0; n < dimension; n++) {
                 if(n != i) {
                     subVect[m-1][z] = vect[m][n];
@@ -62,19 +61,16 @@ std::vector<std::vector<double>> getCofactor(const std::vector<std::vector<doubl
 
     std::vector<std::vector<double>> solution(vect.size(), std::vector<double> (vect.size()));
     std::vector<std::vector<double>> subVect(vect.size() - 1, std::vector<double> (vect.size() - 1));
-	#pragma omp for
     for(std::size_t i = 0; i < vect.size(); i++) {
-		#pragma omp for
         for(std::size_t j = 0; j < vect[0].size(); j++) {
 
             int p = 0;
-			#pragma omp for
             for(size_t x = 0; x < vect.size(); x++) {
                 if(x == i) {
                     continue;
                 }
                 int q = 0;
-				#pragma omp for
+                #pragma omp for
                 for(size_t y = 0; y < vect.size(); y++) {
                     if(y == j) {
                         continue;
@@ -97,10 +93,9 @@ std::vector<std::vector<double>> getTranspose(const std::vector<std::vector<doub
 
     //Transpose-matrix: height = width(matrix), width = height(matrix)
     std::vector<std::vector<double>> solution(matrix1[0].size(), std::vector<double> (matrix1.size()));
-	#pragma omp for
     //Filling solution-matrix
     for(size_t i = 0; i < matrix1.size(); i++) {
-		#pragma omp for
+        #pragma omp for
         for(size_t j = 0; j < matrix1[0].size(); j++) {
             solution[j][i] = matrix1[i][j];
         }
@@ -115,18 +110,15 @@ std::vector<std::vector<double>> getInverse(const std::vector<std::vector<double
 
     double d = 1.0/getDeterminant(vect);
     std::vector<std::vector<double>> solution(vect.size(), std::vector<double> (vect.size()));
-	#pragma omp for
     for(size_t i = 0; i < vect.size(); i++) {
-		#pragma omp for
+        #pragma omp for
         for(size_t j = 0; j < vect.size(); j++) {
             solution[i][j] = vect[i][j]; 
         }
     }
-
     solution = getTranspose(getCofactor(solution));
-	#pragma omp for
     for(size_t i = 0; i < vect.size(); i++) {
-		#pragma omp for
+        #pragma omp for
         for(size_t j = 0; j < vect.size(); j++) {
             solution[i][j] *= d;
         }
