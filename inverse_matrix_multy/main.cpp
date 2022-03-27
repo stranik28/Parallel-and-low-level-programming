@@ -129,11 +129,6 @@ std::vector<std::vector<double>> getInverse(const std::vector<std::vector<double
 
 int main() {
     std::vector<std::vector<double>> matrix(19, std::vector<double> (19));
-	// for(int i = 0; i < n;i++){
-	// 	for(int j = 0; j < n; j++){
-	// 		matrix[i][j] = (i+j)*1.0;
-	// 	}
-	// }
     matrix = {
         {2,2,3,9,12,12,99},
 		{3,2,23,9,12,14,89},
